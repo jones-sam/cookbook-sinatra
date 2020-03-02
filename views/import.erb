@@ -1,0 +1,29 @@
+<h1>Import</h1>
+
+<div class = "import-input">
+
+    <h3>Which recipe would you like to search for?</h3>
+    <form action = "/import" method="post">
+        <input type= "test" id="recipe" name ="recipe">
+        <input class ="btn btn-success" type="submit" value="Submit">
+    </form>
+</div>
+
+<% unless @results.nil?%>
+    <% @results.each_with_index do |result, index| %>
+    <div class="import-result">
+        <h4>
+            <%= "#{index + 1}. #{result}" %>
+            
+
+        </h4>
+        <form action = "/add-import" method="post">
+                <input type="hidden" name="result" value="<%= result %>" />
+                <input type="hidden" name="index" value="<%= index %>" />
+
+                <input class="btn btn-light btn-sm " type="submit" value="Add">
+            </form>
+    </div>
+    
+    <% end %>
+<% end %>

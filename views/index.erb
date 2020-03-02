@@ -1,0 +1,31 @@
+
+<h1>Your cookbook</h1>
+
+<% @recipes.each_with_index do |recipe, index| %>
+  <div class = "recipe-item">
+    <li>
+      <%= "#{index + 1}. #{recipe.name} (#{recipe.prep_time}, #{recipe.difficulty}):" %>
+
+      <form class= "float-right" action = "/delete" method= "post">
+      <input type="hidden" name="index" value="<%= index %>" />
+        <input class="btn btn-sm btn-danger" type="submit" value= "Delete">
+      </form>
+
+    <% if recipe.done == false%>
+      <form class= "float-right done-button" action = "/mark-done" method= "post">
+      <input type="hidden" name="index" value="<%= index %>" />
+        <input class="btn btn-sm btn-primary" type="submit" value= "Done?">
+      </form>
+    <% else%>
+       <form class= "float-right done-button" action = "/mark-not-done" method= "post">
+      <input type="hidden" name="index" value="<%= index %>" />
+        <input class="btn btn-sm btn-success" type="submit" value= "Done!">
+      </form>
+    <%end%>
+    </li>
+    <p><%="#{recipe.description}" %></p>
+  </div>
+<% end %>
+
+<a class = "btn btn-primary" href="/new">Add a new recipe</a>
+<a class = "btn btn-info" href="/import">Import</a>

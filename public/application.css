@@ -1,0 +1,32 @@
+h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+li {
+  font-size: 16px;
+}
+
+.recipe-item:hover {
+  background-color: #8080803f;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.import-input {
+  text-align: center;
+}
+
+.import-result {
+  padding: 10px;
+}
+
+.done-button {
+  margin-right: 5px;
+}
