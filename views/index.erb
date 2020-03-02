@@ -3,7 +3,7 @@
 
 <% @recipes.each_with_index do |recipe, index| %>
   <div class = "recipe-item">
-    <li>
+    <h4>
       <%= "#{index + 1}. #{recipe.name} (#{recipe.prep_time}, #{recipe.difficulty}):" %>
 
       <form class= "float-right" action = "/delete" method= "post">
@@ -22,7 +22,7 @@
         <input class="btn btn-sm btn-success" type="submit" value= "Done!">
       </form>
     <%end%>
-    </li>
+    </h4>
     <p><%="#{recipe.description}" %></p>
   </div>
 <% end %>
